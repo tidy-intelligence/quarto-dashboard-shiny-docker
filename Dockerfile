@@ -3,7 +3,6 @@ FROM rocker/shiny
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
-    pandoc-citeproc \
     curl \
     gdebi-core \
     && rm -rf /var/lib/apt/lists/*
@@ -28,7 +27,7 @@ RUN mkdir -p /var/log/shiny-server && \
 # Render dashboard
 COPY index.qmd /srv/shiny-server/dashboard/index.qmd
 WORKDIR /srv/shiny-server/dashboard/
-CMD ["quarto render index.qmd"]
+RUN quarto render index.qmd
 
 # Switch to non-root user
 USER shiny
