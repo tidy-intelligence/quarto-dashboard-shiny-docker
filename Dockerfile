@@ -21,8 +21,7 @@ COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 
 # Ensure correct permissions to delete logs
 RUN mkdir -p /var/log/shiny-server && \
-    chown -R shiny:shiny /var/log/shiny-server && \
-    chmod -R 777 /var/log/shiny-server
+    chown -R shiny:shiny /var/log/shiny-server
 
 # Render dashboard
 COPY index.qmd /srv/shiny-server/dashboard/index.qmd
