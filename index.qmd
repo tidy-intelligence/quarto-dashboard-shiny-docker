@@ -6,9 +6,6 @@ server: shiny
 
 ```{r}
 #| context: setup
-library(shiny)
-library(quarto)
-
 vars <- setdiff(names(iris), "Species")
 ```
 
